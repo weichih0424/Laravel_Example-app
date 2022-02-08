@@ -14,7 +14,7 @@ class AdminController extends HomeController
         parent::sideBar();
         return view('login', $this->view);
     }
-
+    //test
     public function logout(){
         Auth::logout();
         return redirect('/login');
