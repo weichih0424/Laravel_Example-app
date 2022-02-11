@@ -9,6 +9,8 @@ use Tests\TestCase;
 use App\Services\SignUp_Store_Service;
 use App\Models\AdminUsersModel;
 use Illuminate\Support\Facades\Hash;
+use Mockery\MockInterface;
+use PDOException;
 
 class UserTest extends TestCase
 {
@@ -136,4 +138,29 @@ class UserTest extends TestCase
         ]);
     }
 
+    public function test_storeGetPDOException()
+    {
+        //arrange
+        $this->mock(AdminUsersModel::class, function (MockInterface $mock) {
+            $mock->shouldReceive('signUp')
+                ->andThrow(new PDOException());
+        });
+        $id = 10;
+        $account = "JimChien";
+        $username = "Jim";
+        $password = "123Acb_";
+
+        // act&assert
+        $this->postJson("/api/test_user", [
+            'id'=>$id,
+            'account'=>$account,
+            'password'=>$password,
+            'username'=>$username
+        ])
+        ->assertStatus(200)
+        ->assertJson([
+            'success' => 'false',
+            // 'error'=> 'DB error'
+        ]);
+    }
 }
