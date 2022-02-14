@@ -14,9 +14,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SubMenuController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\api\UserController as api_user;
+
+// use App\Http\Controllers\api\UserController as api_user;
 use App\Http\Controllers\test_LoginController;
 use App\Http\Controllers\test_LogoutController;
+// use App\Http\Controllers\api\TitleController as api_title;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -175,9 +177,9 @@ Route::get("/modals/submenu/{id}", [SubMenuController::class, 'edit']);
 
 
 //test api
-Route::get('/test/greeting', function () {
-    return 'Hello World';
-});
+// Route::get('/test/greeting', function () {
+//     return 'Hello World';
+// });
 Route::get('/test/login', function () {
     return view('test_login');
 });
@@ -185,13 +187,17 @@ Route::post('/test/login', [test_LoginController::class, 'loginWithORM']);
 // Route::get('/test/logout', [test_LoginController::class, 'logout']);
 Route::get('/test/logout', [test_LogoutController::class, '__invoke']);
 // Route::get('/test/user/{id}', [UserController::class, 'show']);
-Route::prefix('api')->group(function(){
-    Route::get('/test_user', [api_user::class, 'index']);
-    Route::get('/test_user/{id}', [api_user::class, 'show']);
-    Route::post('/test_user', [api_user::class, 'store']);
-    // Route::post('/test_user',function () {
-    //     return '123';
-    // });
-    Route::put('/test_user/{id}', [api_user::class, 'update']);
-    Route::delete('/test_user/{id}', [api_user::class, 'destroy']);
-});
+// Route::prefix('api')->group(function(){
+//     Route::get('/test_user', [api_user::class, 'index']);
+//     Route::get('/test_user/{id}', [api_user::class, 'show']);
+//     Route::post('/test_user', [api_user::class, 'store']);
+//     // Route::post('/test_user',function () {
+//     //     return '123';
+//     // });
+//     Route::put('/test_user/{id}', [api_user::class, 'update']);
+//     Route::delete('/test_user/{id}', [api_user::class, 'destroy']);
+
+
+//     Route::get('title', [api_title::class, 'index']);
+
+// });
