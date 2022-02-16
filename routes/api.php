@@ -29,8 +29,11 @@ Route::put('/test_user/{id}', [api_user::class, 'update']);
 Route::delete('/test_user/{id}', [api_user::class, 'destroy']);
 
 
-Route::get('title', [api_title::class, 'index']);
-Route::get('admin', [api_admin::class, 'index']);
+Route::get('/title', [api_title::class, 'index']);
+
+Route::get('/admin', [api_admin::class, 'index']);
+Route::post('/admin', [api_admin::class, 'store']);
+Route::put('/admin/{id}', [api_admin::class, 'update']);
 
 
 // //測試API
