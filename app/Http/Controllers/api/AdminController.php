@@ -16,7 +16,21 @@ class AdminController extends Controller
     }
     public function store(Request $request)
     {
-        $article = Admin::create($request->all());
-        return response()->json($article, 201);
+        $Admin = Admin::create($request->all());
+        return response()->json($Admin, 201);
     }
+    public function update(Request $request, $id)
+    {
+        $Admin = Admin::find($id);
+        if($Admin!==null){
+            $Admin->update($request->all());
+            return response()->json([
+                'success' => 'true'
+            ]);
+        }
+        return response()->json([
+            'success' => 'false'
+        ]);
+    }
+
 }

@@ -25,7 +25,7 @@ use App\Http\Controllers\api\AdminController as api_admin;
 Route::get('/test_user', [api_user::class, 'index']);
 Route::get('/test_user/{id}', [api_user::class, 'show']);
 Route::post('/test_user', [api_user::class, 'store']);
-Route::put('/test_user/{id}', [api_user::class, 'update']);
+Route::patch('/test_user/{id}', [api_user::class, 'update']);
 Route::delete('/test_user/{id}', [api_user::class, 'destroy']);
 
 
@@ -33,7 +33,7 @@ Route::get('/title', [api_title::class, 'index']);
 
 Route::get('/admin', [api_admin::class, 'index']);
 Route::post('/admin', [api_admin::class, 'store']);
-Route::put('/admin/{id}', [api_admin::class, 'update']);
+Route::patch('/admin/{id}', [api_admin::class, 'update']);
 
 
 // //測試API
