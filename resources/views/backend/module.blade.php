@@ -164,7 +164,8 @@ $(".show").on("click", function(){
                 $(".show").text("隱藏")
                 _this.text("顯示")
             }
-            $(".header img").attr("src", "http://test.example.com/storage/"+img)
+            $(".header img").attr("src", "{{ url('storage/') }}/"+img)
+            // $(".header img").attr("src", "http://test.example.com/storage/"+img)
         }
         @else
         success:function(){
